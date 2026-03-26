@@ -1,0 +1,24 @@
+* {
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+}
+.logo {
+    height: 40px;
+    width: 40px;
+}
+
+
+.navbar {
+    width: 220px;
+    height: 100vh;
+    display: flex;
+    box-sizing: border-box;
+    position: fixed;
+}
+
+.sidebar{
+    
+    background-color: grey;
+    list-style: none;
+    line-height: 2;
+    justify-content: left;
+}
