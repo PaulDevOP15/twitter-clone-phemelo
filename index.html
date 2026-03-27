@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,6 +105,7 @@
         </div>
     </nav>
 
+    <div class="feed-and-trends">
     <main class="feed">
         <header class="feed-header">
             <h1 class="feed-title">Home</h1>
@@ -113,11 +114,384 @@
             </button>
         </header>
 
-        <section class="feed-placeholder">
-            <p>This is where your timeline/feed content will go.</p>
-        </section>
+        <div class="feed-scroll">
+            <section class="compose" aria-label="Compose tweet">
+                <div class="compose-inner">
+                    <div class="compose-avatar avatar" aria-hidden="true"></div>
+                    <div class="compose-main">
+                        <label class="visually-hidden" for="tweet-input">Tweet text</label>
+                        <textarea id="tweet-input" class="compose-input" placeholder="What's happening?" rows="2"></textarea>
+                        <div class="compose-toolbar">
+                            <div class="compose-icons" role="toolbar" aria-label="Tweet attachments">
+                                <button type="button" class="compose-icon-btn" aria-label="Add photos or video">
+                                    <span class="material-icons">image</span>
+                                </button>
+                                <button type="button" class="compose-icon-btn" aria-label="Add GIF">
+                                    <span class="material-icons">movie_creation</span>
+                                </button>
+                                <button type="button" class="compose-icon-btn" aria-label="Add poll">
+                                    <span class="material-icons">bar_chart</span>
+                                </button>
+                                <button type="button" class="compose-icon-btn" aria-label="Emoji">
+                                    <span class="material-icons">sentiment_satisfied_alt</span>
+                                </button>
+                                <button type="button" class="compose-icon-btn" aria-label="Schedule">
+                                    <span class="material-icons">schedule</span>
+                                </button>
+                                <button type="button" class="compose-icon-btn" aria-label="Location">
+                                    <span class="material-icons">place</span>
+                                </button>
+                            </div>
+                            <button type="button" class="compose-submit">Tweet</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <article class="tweet">
+                <div class="tweet-avatar avatar" aria-hidden="true"></div>
+                <div class="tweet-content">
+                    <header class="tweet-header">
+                        <span class="tweet-name">Thabo Mokoena</span>
+                        <span class="tweet-handle">@ThaboMokoena</span>
+                        <span class="tweet-sep" aria-hidden="true">·</span>
+                        <time class="tweet-time" datetime="PT12M">12m</time>
+                    </header>
+                    <p class="tweet-text">“Honestly, this season of Big Brother Mzansi is becoming way more intense than I expected. The alliances are messy, people are switching sides overnight, and Thandeka is right at the center of it. If she gets evicted, the whole dynamic in the house is going to change completely.”</p>
+                    <footer class="tweet-actions" aria-label="Tweet actions">
+                        <button type="button" class="tweet-action tweet-action--reply" aria-label="89 Replies">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">chat_bubble_outline</span>
+                            <span class="tweet-action-count">89</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--retweet" aria-label="412 Retweets">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">repeat</span>
+                            <span class="tweet-action-count">412</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--like" aria-label="1.8K Likes">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">favorite_border</span>
+                            <span class="tweet-action-count">1.8K</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--share" aria-label="Share">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">ios_share</span>
+                        </button>
+                    </footer>
+                </div>
+            </article>
+
+            <article class="tweet">
+                <div class="tweet-avatar avatar" aria-hidden="true"></div>
+                <div class="tweet-content">
+                    <header class="tweet-header">
+                        <span class="tweet-name">Lerato Speaks</span>
+                        <span class="tweet-handle">@LeratoSpeaks</span>
+                        <span class="tweet-sep" aria-hidden="true">·</span>
+                        <time class="tweet-time" datetime="PT28M">28m</time>
+                    </header>
+                    <p class="tweet-text">“The back-and-forth between Mkhwanazi and Malema says a lot about the current political climate. It’s not just about personalities anymore, it’s about deeper tensions that keep surfacing every few months. People need to pay attention to what’s actually being said.”</p>
+                    <footer class="tweet-actions" aria-label="Tweet actions">
+                        <button type="button" class="tweet-action tweet-action--reply" aria-label="156 Replies">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">chat_bubble_outline</span>
+                            <span class="tweet-action-count">156</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--retweet" aria-label="892 Retweets">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">repeat</span>
+                            <span class="tweet-action-count">892</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--like" aria-label="3.2K Likes">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">favorite_border</span>
+                            <span class="tweet-action-count">3.2K</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--share" aria-label="Share">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">ios_share</span>
+                        </button>
+                    </footer>
+                </div>
+            </article>
+
+            <article class="tweet">
+                <div class="tweet-avatar avatar" aria-hidden="true"></div>
+                <div class="tweet-content">
+                    <header class="tweet-header">
+                        <span class="tweet-name">Sipho Reviews TV</span>
+                        <span class="tweet-handle">@SiphoReviewsTV</span>
+                        <span class="tweet-sep" aria-hidden="true">·</span>
+                        <time class="tweet-time" datetime="PT1H">1h</time>
+                    </header>
+                    <p class="tweet-text">“I started watching Pimville recently and I can’t believe I slept on it for so long. The storytelling feels real, the characters are relatable, and some of these scenes actually hit harder than expected. Definitely one of the better local shows out right now.”</p>
+                    <footer class="tweet-actions" aria-label="Tweet actions">
+                        <button type="button" class="tweet-action tweet-action--reply" aria-label="34 Replies">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">chat_bubble_outline</span>
+                            <span class="tweet-action-count">34</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--retweet" aria-label="201 Retweets">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">repeat</span>
+                            <span class="tweet-action-count">201</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--like" aria-label="1.1K Likes">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">favorite_border</span>
+                            <span class="tweet-action-count">1.1K</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--share" aria-label="Share">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">ios_share</span>
+                        </button>
+                    </footer>
+                </div>
+            </article>
+
+            <article class="tweet">
+                <div class="tweet-avatar avatar" aria-hidden="true"></div>
+                <div class="tweet-content">
+                    <header class="tweet-header">
+                        <span class="tweet-name">Tech With Aisha</span>
+                        <span class="tweet-handle">@TechWithAisha</span>
+                        <span class="tweet-sep" aria-hidden="true">·</span>
+                        <time class="tweet-time" datetime="PT2H">2h</time>
+                    </header>
+                    <p class="tweet-text">“That Samsung event really showed how fast mobile tech is evolving. The AI features aren’t just gimmicks anymore, they actually look useful in everyday situations. It feels like we’re getting closer to phones replacing laptops for most people.”</p>
+                    <footer class="tweet-actions" aria-label="Tweet actions">
+                        <button type="button" class="tweet-action tweet-action--reply" aria-label="67 Replies">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">chat_bubble_outline</span>
+                            <span class="tweet-action-count">67</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--retweet" aria-label="524 Retweets">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">repeat</span>
+                            <span class="tweet-action-count">524</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--like" aria-label="2.4K Likes">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">favorite_border</span>
+                            <span class="tweet-action-count">2.4K</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--share" aria-label="Share">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">ios_share</span>
+                        </button>
+                    </footer>
+                </div>
+            </article>
+
+            <article class="tweet">
+                <div class="tweet-avatar avatar" aria-hidden="true"></div>
+                <div class="tweet-content">
+                    <header class="tweet-header">
+                        <span class="tweet-name">Football ZA</span>
+                        <span class="tweet-handle">@FootballZA</span>
+                        <span class="tweet-sep" aria-hidden="true">·</span>
+                        <time class="tweet-time" datetime="PT3H">3h</time>
+                    </header>
+                    <p class="tweet-text">“If you’ve never been to a big match at FNB Stadium, you’re missing out. The energy from the crowd, the singing, the tension during key moments—it’s honestly one of the best live sports experiences you can have.”</p>
+                    <footer class="tweet-actions" aria-label="Tweet actions">
+                        <button type="button" class="tweet-action tweet-action--reply" aria-label="42 Replies">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">chat_bubble_outline</span>
+                            <span class="tweet-action-count">42</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--retweet" aria-label="318 Retweets">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">repeat</span>
+                            <span class="tweet-action-count">318</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--like" aria-label="987 Likes">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">favorite_border</span>
+                            <span class="tweet-action-count">987</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--share" aria-label="Share">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">ios_share</span>
+                        </button>
+                    </footer>
+                </div>
+            </article>
+
+            <article class="tweet">
+                <div class="tweet-avatar avatar" aria-hidden="true"></div>
+                <div class="tweet-content">
+                    <header class="tweet-header">
+                        <span class="tweet-name">Music Talks Daily</span>
+                        <span class="tweet-handle">@MusicTalksDaily</span>
+                        <span class="tweet-sep" aria-hidden="true">·</span>
+                        <time class="tweet-time" datetime="PT4H">4h</time>
+                    </header>
+                    <p class="tweet-text">“I still don’t understand why Drake and Doja Cat haven’t worked together yet. Their styles would complement each other so well, and you just know it would dominate charts for weeks if they ever dropped a track together.”</p>
+                    <footer class="tweet-actions" aria-label="Tweet actions">
+                        <button type="button" class="tweet-action tweet-action--reply" aria-label="512 Replies">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">chat_bubble_outline</span>
+                            <span class="tweet-action-count">512</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--retweet" aria-label="4.1K Retweets">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">repeat</span>
+                            <span class="tweet-action-count">4.1K</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--like" aria-label="12K Likes">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">favorite_border</span>
+                            <span class="tweet-action-count">12K</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--share" aria-label="Share">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">ios_share</span>
+                        </button>
+                    </footer>
+                </div>
+            </article>
+
+            <article class="tweet">
+                <div class="tweet-avatar avatar" aria-hidden="true"></div>
+                <div class="tweet-content">
+                    <header class="tweet-header">
+                        <span class="tweet-name">La Liga Watcher</span>
+                        <span class="tweet-handle">@LaLigaWatcher</span>
+                        <span class="tweet-sep" aria-hidden="true">·</span>
+                        <time class="tweet-time" datetime="PT5H">5h</time>
+                    </header>
+                    <p class="tweet-text">“Girona’s rise this season is actually incredible to watch. They’re playing with confidence and taking on teams like Barca without fear. Meanwhile, Barcelona look like they’re still trying to figure things out.”</p>
+                    <footer class="tweet-actions" aria-label="Tweet actions">
+                        <button type="button" class="tweet-action tweet-action--reply" aria-label="78 Replies">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">chat_bubble_outline</span>
+                            <span class="tweet-action-count">78</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--retweet" aria-label="445 Retweets">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">repeat</span>
+                            <span class="tweet-action-count">445</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--like" aria-label="1.5K Likes">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">favorite_border</span>
+                            <span class="tweet-action-count">1.5K</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--share" aria-label="Share">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">ios_share</span>
+                        </button>
+                    </footer>
+                </div>
+            </article>
+
+            <article class="tweet">
+                <div class="tweet-avatar avatar" aria-hidden="true"></div>
+                <div class="tweet-content">
+                    <header class="tweet-header">
+                        <span class="tweet-name">Cricket Pulse</span>
+                        <span class="tweet-handle">@CricketPulse</span>
+                        <span class="tweet-sep" aria-hidden="true">·</span>
+                        <time class="tweet-time" datetime="PT6H">6h</time>
+                    </header>
+                    <p class="tweet-text">“The Australian bowling attack is putting serious pressure on Sri Lanka right now. You can see the difference in consistency and control, and unless something changes quickly, this match might slip away.”</p>
+                    <footer class="tweet-actions" aria-label="Tweet actions">
+                        <button type="button" class="tweet-action tweet-action--reply" aria-label="23 Replies">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">chat_bubble_outline</span>
+                            <span class="tweet-action-count">23</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--retweet" aria-label="167 Retweets">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">repeat</span>
+                            <span class="tweet-action-count">167</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--like" aria-label="634 Likes">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">favorite_border</span>
+                            <span class="tweet-action-count">634</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--share" aria-label="Share">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">ios_share</span>
+                        </button>
+                    </footer>
+                </div>
+            </article>
+
+            <article class="tweet">
+                <div class="tweet-avatar avatar" aria-hidden="true"></div>
+                <div class="tweet-content">
+                    <header class="tweet-header">
+                        <span class="tweet-name">Reality TV Fan SA</span>
+                        <span class="tweet-handle">@RealityTVFanSA</span>
+                        <span class="tweet-sep" aria-hidden="true">·</span>
+                        <time class="tweet-time" datetime="PT8H">8h</time>
+                    </header>
+                    <p class="tweet-text">“I really hope people are taking the time to vote because contestants like Thandeka bring a lot to the show. It’s not just about drama, it’s about personality and how they keep viewers engaged week after week.”</p>
+                    <footer class="tweet-actions" aria-label="Tweet actions">
+                        <button type="button" class="tweet-action tweet-action--reply" aria-label="55 Replies">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">chat_bubble_outline</span>
+                            <span class="tweet-action-count">55</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--retweet" aria-label="289 Retweets">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">repeat</span>
+                            <span class="tweet-action-count">289</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--like" aria-label="756 Likes">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">favorite_border</span>
+                            <span class="tweet-action-count">756</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--share" aria-label="Share">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">ios_share</span>
+                        </button>
+                    </footer>
+                </div>
+            </article>
+
+            <article class="tweet">
+                <div class="tweet-avatar avatar" aria-hidden="true"></div>
+                <div class="tweet-content">
+                    <header class="tweet-header">
+                        <span class="tweet-name">Gamer Insights</span>
+                        <span class="tweet-handle">@GamerInsights</span>
+                        <span class="tweet-sep" aria-hidden="true">·</span>
+                        <time class="tweet-time" datetime="P1D">1d</time>
+                    </header>
+                    <p class="tweet-text">“The improvements coming with DLSS 5 could be a game changer for PC gaming. If the performance gains are as good as they’re claiming, a lot more people will be able to run demanding games smoothly without upgrading their hardware.”</p>
+                    <footer class="tweet-actions" aria-label="Tweet actions">
+                        <button type="button" class="tweet-action tweet-action--reply" aria-label="91 Replies">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">chat_bubble_outline</span>
+                            <span class="tweet-action-count">91</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--retweet" aria-label="602 Retweets">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">repeat</span>
+                            <span class="tweet-action-count">602</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--like" aria-label="1.9K Likes">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">favorite_border</span>
+                            <span class="tweet-action-count">1.9K</span>
+                        </button>
+                        <button type="button" class="tweet-action tweet-action--share" aria-label="Share">
+                            <span class="material-icons tweet-action-icon" aria-hidden="true">ios_share</span>
+                        </button>
+                    </footer>
+                </div>
+            </article>
+        </div>
     </main>
 
+    <div class="trending-container" role="complementary" aria-label="Search and trends">
+        <div class="trending-search">
+            <span class="material-icons trending-search-icon" aria-hidden="true">search</span>
+            <input type="search" class="trending-search-input" placeholder="Search" autocomplete="off" />
+        </div>
+        <section class="trending-panel">
+            <h2 class="trending-panel-title">What's happening</h2>
+            <a href="#" class="trending-row">
+                <span class="trending-meta">Sports · Trending</span>
+                <span class="trending-topic">Matchday highlights</span>
+                <span class="trending-stat">12.4K posts</span>
+            </a>
+            <a href="#" class="trending-row">
+                <span class="trending-meta">Technology · Trending</span>
+                <span class="trending-topic">Web dev</span>
+                <span class="trending-stat">85.2K posts</span>
+            </a>
+            <a href="#" class="trending-row">
+                <span class="trending-meta">Trending in South Africa</span>
+                <span class="trending-topic">Cape Town</span>
+                <span class="trending-stat">4,102 posts</span>
+            </a>
+            <a href="#" class="trending-more">Show more</a>
+        </section>
     </div>
+    </div>
+
+    </div>
+
+    <nav class="mobile-footer-nav" aria-label="Bottom navigation">
+        <a href="#home" class="mobile-footer-link mobile-footer-link--active" aria-label="Home">
+            <span class="material-icons mobile-footer-icon" aria-hidden="true">home</span>
+        </a>
+        <a href="#explore" class="mobile-footer-link" aria-label="Search">
+            <span class="material-icons mobile-footer-icon" aria-hidden="true">search</span>
+        </a>
+        <a href="#notifications" class="mobile-footer-link" aria-label="Notifications">
+            <span class="material-icons mobile-footer-icon" aria-hidden="true">notifications_none</span>
+        </a>
+        <a href="#chat" class="mobile-footer-link" aria-label="Chat">
+            <span class="material-icons mobile-footer-icon" aria-hidden="true">chat_bubble_outline</span>
+        </a>
+    </nav>
 </body>
 </html>
