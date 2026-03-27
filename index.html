@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Fonts & icons (Roboto + Material Icons for toolbar actions) -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    
-
     <link rel="stylesheet" href="style.css">
-
     <title>Twitter Clone</title>
+    <script src="app.js" defer></script>
 </head>
 <body>
+    <!--
+      Shell layout: fixed left nav | center feed | right trends.
+      Modal, mobile FAB, and bottom tab bar live outside .app-shell (viewport-fixed).
+    -->
     <div class="app-shell">
+
+    <!-- Left rail: X logo, primary nav, Tweet CTA, signed-in user -->
     <nav class="navbar">
          <div class="logo">
         <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-16y2uox r-lwhw9o"><g>
@@ -89,7 +93,7 @@
             </li>
         </ul>
 
-        <button class="post-button" type="button">Tweet</button>
+        <button class="post-button" type="button" data-open-tweet-modal>Tweet</button>
 
         <div class="profile-card profile-actions">
             <div class="profile-left">
@@ -105,16 +109,23 @@
         </div>
     </nav>
 
+    <!-- Main area: timeline (flex-grow) + trending column -->
     <div class="feed-and-trends">
+
+    <!-- Center column: sticky “Home” header; only .feed-scroll scrolls -->
     <main class="feed">
         <header class="feed-header">
             <h1 class="feed-title">Home</h1>
-            <button class="feed-star" type="button" aria-label="Timeline settings">
-                <span class="material-icons">star</span>
-            </button>
+            <div class="feed-header-actions">
+                <a href="login.html" class="feed-login-link">Log in</a>
+                <button class="feed-star" type="button" aria-label="Timeline settings">
+                    <span class="material-icons">star</span>
+                </button>
+            </div>
         </header>
 
         <div class="feed-scroll">
+            <!-- Top-of-timeline composer (Tweet also opens the modal via data-open-tweet-modal) -->
             <section class="compose" aria-label="Compose tweet">
                 <div class="compose-inner">
                     <div class="compose-avatar avatar" aria-hidden="true"></div>
@@ -142,12 +153,13 @@
                                     <span class="material-icons">place</span>
                                 </button>
                             </div>
-                            <button type="button" class="compose-submit">Tweet</button>
+                            <button type="button" class="compose-submit" data-open-tweet-modal>Tweet</button>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Sample timeline posts (static markup for layout / hover demos) -->
             <article class="tweet">
                 <div class="tweet-avatar avatar" aria-hidden="true"></div>
                 <div class="tweet-content">
@@ -450,6 +462,7 @@
         </div>
     </main>
 
+    <!-- Right rail: search + “What’s happening” (hidden on small screens via CSS) -->
     <div class="trending-container" role="complementary" aria-label="Search and trends">
         <div class="trending-search">
             <span class="material-icons trending-search-icon" aria-hidden="true">search</span>
@@ -479,6 +492,71 @@
 
     </div>
 
+    <!-- Mobile-only: floating compose (sidebar Tweet is hidden &lt; 700px) -->
+    <button type="button" class="mobile-compose-fab" data-open-tweet-modal aria-label="Compose tweet">
+        <span class="material-icons" aria-hidden="true">edit</span>
+    </button>
+
+    <!-- Overlay composer: toggled by app.js (data-open-tweet-modal / data-close-tweet-modal) -->
+    <div
+        class="tweet-modal"
+        id="tweet-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tweet-modal-title"
+        aria-hidden="true"
+    >
+        <div class="tweet-modal-backdrop" data-close-tweet-modal></div>
+        <div class="tweet-modal-panel">
+            <div class="tweet-modal-top">
+                <button type="button" class="tweet-modal-close" aria-label="Close" data-close-tweet-modal>
+                    <span class="material-icons" aria-hidden="true">close</span>
+                </button>
+                <span class="tweet-modal-top-spacer" aria-hidden="true"></span>
+                <a href="#" class="tweet-modal-drafts">Drafts</a>
+            </div>
+            <h2 id="tweet-modal-title" class="visually-hidden">Compose tweet</h2>
+            <div class="tweet-modal-body">
+                <div class="compose-inner tweet-modal-compose">
+                    <div class="compose-avatar avatar" aria-hidden="true"></div>
+                    <div class="compose-main">
+                        <label class="visually-hidden" for="tweet-modal-input">Tweet text</label>
+                        <textarea
+                            id="tweet-modal-input"
+                            class="compose-input"
+                            placeholder="What's happening?"
+                            rows="4"
+                        ></textarea>
+                        <div class="compose-toolbar">
+                            <div class="compose-icons" role="toolbar" aria-label="Tweet attachments">
+                                <button type="button" class="compose-icon-btn" aria-label="Add photos or video">
+                                    <span class="material-icons">image</span>
+                                </button>
+                                <button type="button" class="compose-icon-btn" aria-label="Add GIF">
+                                    <span class="material-icons">movie_creation</span>
+                                </button>
+                                <button type="button" class="compose-icon-btn" aria-label="Add poll">
+                                    <span class="material-icons">bar_chart</span>
+                                </button>
+                                <button type="button" class="compose-icon-btn" aria-label="Emoji">
+                                    <span class="material-icons">sentiment_satisfied_alt</span>
+                                </button>
+                                <button type="button" class="compose-icon-btn" aria-label="Schedule">
+                                    <span class="material-icons">schedule</span>
+                                </button>
+                                <button type="button" class="compose-icon-btn" aria-label="Location">
+                                    <span class="material-icons">place</span>
+                                </button>
+                            </div>
+                            <button type="button" class="compose-submit" data-modal-tweet-submit>Tweet</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile-only bottom tabs (Home, Search, Notifications, Chat) -->
     <nav class="mobile-footer-nav" aria-label="Bottom navigation">
         <a href="#home" class="mobile-footer-link mobile-footer-link--active" aria-label="Home">
             <span class="material-icons mobile-footer-icon" aria-hidden="true">home</span>

@@ -1,3 +1,9 @@
+/*
+ * Twitter clone — stylesheet for index.html
+ * Desktop: fixed left nav, scrollable feed, right trends. ≤700px: feed + bottom bar + FAB.
+ */
+
+/* --- Reset & page defaults --- */
 * {
   box-sizing: border-box;
 }
@@ -16,6 +22,7 @@ body {
   overflow: hidden;
 }
 
+/* --- App frame (max width, sidebar gutter for fixed nav) --- */
 .app-shell {
   display: flex;
   max-width: 1260px;
@@ -24,6 +31,7 @@ body {
   height: 100%;
 }
 
+/* --- Main columns: feed + trending (sibling to fixed .navbar) --- */
 .feed-and-trends {
   display: flex;
   flex: 1;
@@ -33,6 +41,7 @@ body {
   min-height: 0;
 }
 
+/* --- Left navigation rail --- */
 .navbar {
   width: 220px;
   height: 100vh;
@@ -172,6 +181,7 @@ body {
   background: rgba(29, 155, 240, 0.12);
 }
 
+/* --- Center column: timeline (header fixed; .feed-scroll scrolls) --- */
 .feed {
   flex: 1;
   min-width: 0;
@@ -194,6 +204,28 @@ body {
   backdrop-filter: blur(12px);
   background: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid rgba(239, 243, 244, 0.8);
+}
+
+.feed-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feed-login-link {
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid #536471;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f1419;
+  text-decoration: none;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.feed-login-link:hover {
+  background: rgba(15, 20, 25, 0.06);
+  border-color: #0f1419;
 }
 
 .feed-scroll {
@@ -229,6 +261,7 @@ body {
   font-size: 20px;
 }
 
+/* Screen-reader-only labels (paired with aria where needed) */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -241,7 +274,7 @@ body {
   border: 0;
 }
 
-/* Compose (post tweet) */
+/* --- Inline compose strip at top of feed --- */
 .compose {
   border-bottom: 1px solid rgba(239, 243, 244, 0.8);
   padding: 12px 16px 10px;
@@ -348,7 +381,7 @@ body {
   background: #1a8cd8;
 }
 
-/* Tweet cards */
+/* --- Timeline post cards & action buttons --- */
 .tweet {
   display: flex;
   gap: 12px;
@@ -478,7 +511,7 @@ body {
   background: rgba(29, 155, 240, 0.12);
 }
 
-/* Right rail: search + trends */
+/* --- Right column: search + trending topics --- */
 .trending-container {
   flex: 0 0 348px;
   width: 348px;
@@ -598,12 +631,120 @@ body {
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* Mobile bottom bar (hidden on desktop) */
+/* --- Compose modal (backdrop + card; open/close in app.js) --- */
+.tweet-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-bottom: max(16px, env(safe-area-inset-bottom, 0px));
+}
+
+.tweet-modal.is-open {
+  display: flex;
+}
+
+.tweet-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(91, 112, 131, 0.45);
+  cursor: pointer;
+}
+
+.tweet-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 600px;
+  max-height: min(90vh, 640px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+}
+
+.tweet-modal-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(239, 243, 244, 0.9);
+}
+
+.tweet-modal-top-spacer {
+  flex: 1;
+}
+
+.tweet-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #0f1419;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.tweet-modal-close:hover {
+  background: rgba(15, 20, 25, 0.08);
+}
+
+.tweet-modal-close .material-icons {
+  font-size: 22px;
+}
+
+.tweet-modal-drafts {
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #1d9bf0;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 140ms ease;
+}
+
+.tweet-modal-drafts:hover {
+  background: rgba(29, 155, 240, 0.12);
+}
+
+.tweet-modal-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 4px 16px 16px;
+}
+
+.tweet-modal-compose {
+  padding-top: 8px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Hidden on desktop; shown inside mobile query below */
+.mobile-compose-fab {
+  display: none;
+}
+
 .mobile-footer-nav {
   display: none;
 }
 
-/* Mobile: center column (feed) only */
+/* --- Mobile: hide sidebars, show bottom nav + compose FAB --- */
 @media (max-width: 700px) {
   .navbar {
     display: none;
@@ -637,7 +778,6 @@ body {
   .feed-scroll {
     padding-left: env(safe-area-inset-left, 0px);
     padding-right: env(safe-area-inset-right, 0px);
-    /* Space above fixed footer (icons + labels + safe area) */
     padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
   }
 
@@ -691,5 +831,48 @@ body {
 
   .mobile-footer-link--active {
     color: #0f1419;
+  }
+
+  .mobile-compose-fab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: calc(58px + env(safe-area-inset-bottom, 0px));
+    right: max(16px, env(safe-area-inset-right, 0px));
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border: none;
+    border-radius: 9999px;
+    background: #1d9bf0;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(29, 155, 240, 0.45);
+    z-index: 35;
+    transition: background 140ms ease, transform 140ms ease;
+  }
+
+  .mobile-compose-fab:hover {
+    background: #1a8cd8;
+  }
+
+  .mobile-compose-fab:active {
+    transform: scale(0.96);
+  }
+
+  .mobile-compose-fab .material-icons {
+    font-size: 26px;
+  }
+}
+
+/* Tone down FAB motion when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-compose-fab {
+    transition: none;
+  }
+
+  .mobile-compose-fab:active {
+    transform: none;
   }
 }
